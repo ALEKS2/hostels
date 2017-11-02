@@ -52,5 +52,27 @@ function insertAllocation($con, $id, $allocation_id, $room_to_allocate, $phone_n
         return "failure";
     }
 }
+function verifyphone($phone_number){
+    if(is_numeric($phone_number)){
+        function count_digit($number) {
+            return strlen((string) $number);
+            }
+            
+            //function call
+           
+            $number_of_digits = count_digit($phone_number); //this is call :)
+            if(substr($phone_number, 0, 1) == '0'){
+                if($number_of_digits == 10){
+                    return "valid";
+                }else{
+                    return "failure";
+                }
+            }else{
+                return "failure";
+            }
+    }else{
+        return "failure";
+    }
+}
 
 ?>
