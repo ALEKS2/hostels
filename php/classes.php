@@ -12,15 +12,18 @@
        }
     //    admin login
        public function adminLogin($con){
-            $user_attributes = array();
-            $stmt = $con->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
-            $stmt->bind_param('ss', $this->username, $this->password);
-            $stmt->execute();
-            $results = $stmt->get_result();
-            if($stmt->affected_rows == 1){
-                foreach($results as $result){
-                    return $result;
-                }
+            // $user_attributes = array();
+            // $stmt = $con->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
+            // $stmt->bind_param('ss', $this->username, $this->password);
+            // $stmt->execute();
+            // $results = $stmt->get_result();
+
+            $sql = "SELECT * FROM admin WHERE username='$this->username' AND password='$this->password'";
+            echo $this->username;
+            echo $this->password;
+            $result = $con->query($sql);
+            if($con->affected_rows==1){
+                return "success";
             }else{
                 return "failure";
             }

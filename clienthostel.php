@@ -21,6 +21,8 @@ if($con->connect_error){
        $hostel_rooms = getFreeHostelRoomsById($con, $id);
     //    print_r($hostel_rooms);
        $number_of_free_rooms = count($hostel_rooms);
+       $map_query = $hostel['hostel_name']." hostel ".$hostel['university']." ".$hostel['location'];
+       
        
     }
 ?>
@@ -53,20 +55,20 @@ if($con->connect_error){
        
         <div class="card-block">
         
-        <?php echo "<h4 class=\"card-title\"><button class=\"btn btn-success\" id=\"bookbutton\" data-toggle=\"modal\" data-target=\"#bookmodal\">Book a room</button></h4>"?>
+        <?php echo "<h4 class=\"card-title\"><button class=\"btn btn-primary\" id=\"bookbutton\" data-toggle=\"modal\" data-target=\"#bookmodal\">Book a room</button></h4>"?>
         
         <div class="card-text">
         <ul class="list-group">
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Number of Free Rooms<span class="badge badge-success badge-pill"><?php echo $number_of_free_rooms;?></span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Booking fee<span class="badge badge-success badge-pill"><?php echo $hostel['booking_fees'];?> USH</span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Single Room Fee<span class="badge badge-success badge-pill"><?php echo $hostel['single_room_rent_fees'];?> USH</span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Double Room Fee<span class="badge badge-success badge-pill"><?php echo $hostel['double_room_rent_fees'];?> USH</span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Location<span class="badge badge-success badge-pill"><?php echo $hostel['location'];?></span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Distance From campus<span class="badge badge-success badge-pill"><?php echo $hostel['distance_from_compus'];?> metres</span></li><li href="#" class="list-group-item list-group-item-action justify-content-between">Distance From campus<span class="badge badge-success badge-pill"><?php echo $hostel['distance_from_compus'];?> metres</span></li>
-            <li href="#" class="list-group-item list-group-item-action justify-content-between">Status<span class="badge badge-success badge-pill"><?php echo $hostel['status'];?></span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Number of Free Rooms<span class="badge badge-primary badge-pill"><?php echo $number_of_free_rooms;?></span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Booking fee<span class="badge badge-primary badge-pill"><?php echo $hostel['booking_fees'];?> USH</span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Single Room Fee<span class="badge badge-primary badge-pill"><?php echo $hostel['single_room_rent_fees'];?> USH</span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Double Room Fee<span class="badge badge-primary badge-pill"><?php echo $hostel['double_room_rent_fees'];?> USH</span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Location<span class="badge badge-primary badge-pill"><?php echo $hostel['location'];?></span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Distance From campus<span class="badge badge-primary badge-pill"><?php echo $hostel['distance_from_compus'];?> metres</span></li><li href="#" class="list-group-item list-group-item-action justify-content-between">Distance From campus<span class="badge badge-primary badge-pill"><?php echo $hostel['distance_from_compus'];?> metres</span></li>
+            <li href="#" class="list-group-item list-group-item-action justify-content-between">Status<span class="badge badge-primary badge-pill"><?php echo $hostel['status'];?></span></li>
         </ul>
-        <button class="btn btn-success btn-block" data-toggle="modal" data-target="#descriptionmodal">More About The Hostel</button>
-        <a href="map.php?lat=<?php echo $hostel['latitudes']?>&&long=<?php echo $hostel['longitudes']?>" class="btn btn-success btn-block">Load Hostel On Map</a>
+        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#descriptionmodal">More About The Hostel</button>
+        <a href="map.php?query=<?php echo $map_query; ?>" class="btn btn-primary btn-block">Load Hostel On Map</a>
         <div class="modal" id="descriptionmodal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -117,7 +119,7 @@ if($con->connect_error){
               <?php echo '<input type="hidden" name="id" value='.$id.'>'; ?>
               <?php echo '<input type="hidden" name="hostel_name" value='.$hostel['hostel_name'].'>'; ?>
             <div class="modal-footer">
-              <button class="btn btn-success" data-toggle="modal" data-target="#booknextmodal" type="submit" name="submit_room_type">Next</button>
+              <button class="btn btn-primary" type="submit" name="submit_room_type">Next</button>
             </form>
             <button class="btn btn-danger" data-dismiss="modal">close</button>
             </div>

@@ -36,7 +36,7 @@ if($con->connect_error){
         <?php
         foreach ($hostels as $hostel) {
             // print_r($hostel);
-            echo "<li class=\"list-group-item p-0\"><a class=\"btn btn-success w-100 h-100 m-0\" href=\"clienthostel.php?id=".$hostel['id']."\">".$hostel['hostel_name']." hostel</a></li>";
+            echo "<li class=\"list-group-item p-0\"><a class=\"btn btn-primary w-100 h-100 m-0\" href=\"clienthostel.php?id=".$hostel['id']."\">".$hostel['hostel_name']." hostel</a></li>";
         }
          ?>
     </ul>

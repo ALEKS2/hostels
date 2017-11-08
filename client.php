@@ -31,14 +31,14 @@ require('clientprovider.php');
 </head>
 <body>
     <div class="fluid">
-    <h4 class="bg-success p-2 text-white">Choose Your University</h3>
+    <h4 class="bg-primary p-2 text-white">Choose Your University</h3>
      <ul class="list-group ">
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="universityhostels.php?university=Makerere">Makeerere University</a></li>
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="universityhostels.php?university=Kyambogo">Kyambogo University</a></li>
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="universityhostels.php?university=MUST">Mbarara University</a></li>
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="">Kampala International University</a></li>
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="">Uganda Christian University</a></li>
-        <li class="list-group-item p-0"><a class="btn btn-success w-100 h-100 m-0" href="">Busitema University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="universityhostels.php?university=Makerere">Makeerere University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="universityhostels.php?university=Kyambogo">Kyambogo University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="universityhostels.php?university=MUST">Mbarara University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="">Kampala International University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="">Uganda Christian University</a></li>
+        <li class="list-group-item p-0"><a class="btn btn-primary w-100 h-100 m-0" href="">Busitema University</a></li>
      </ul>
     <div class="modal" id="afterbookmodal">
      <div class="modal-dialog">

@@ -1,5 +1,6 @@
 <?php
 require('clientprovider.php');
+require('messanger.php');
 $db_host='localhost';
 $db_user='root';
 $db_password='';
@@ -15,6 +16,8 @@ if($con->connect_error){
     $room_type = $_POST['room_type'];
     $phone_number = $_POST['phone_number'];
     $hostel_name = $_POST['hostel_name'];
+    $new_phone = substr($phone_number, 1);
+    $real_phone = '256'.$new_phone;
     $verifyphone = verifyphone($phone_number);
     if($verifyphone == "failure"){
       header('Location: client.php?bookmessage=failure&&hostel='.$hostel_name);
@@ -30,9 +33,14 @@ if($con->connect_error){
           $allocation_id = $hostel_name.$first_id;
           $insert_allocation = insertAllocation($con, $id, $allocation_id, $room_to_allocate, $phone_number);
           if($insert_allocation == "success"){
-             $message = "You have been allocated Room ".$room_to_allocate." of ".$hostel_name." hostel and your allocation id is ".$allocation_id;
-            //  echo $message;
-             header('Location: client.php?bookmessage=success&&hostel='.$hostel_name);
+             $message = "You have booked ".$room_to_allocate." of ".$hostel_name." hostel and your allocation id is ".$allocation_id;
+             $send_message = messanger($real_phone, $message);
+             if($send_message != 200){
+              header('Location: client.php?bookmessage=failure&&hostel='.$hostel_name);
+             }else{
+                header('Location: client.php?bookmessage=success&&hostel='.$hostel_name);
+             }
+            
           }else{
              
               header('Location: client.php?bookmessage=failure&&hostel='.$hostel_name);
